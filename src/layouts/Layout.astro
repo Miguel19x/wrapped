@@ -1,0 +1,40 @@
+---
+import '@/styles/globals.css';
+import '@fontsource-variable/roboto-flex';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+const lang = Astro.cookies.get('NEXT_LOCALE')?.value || 'es';
+---
+
+<!doctype html>
+<html lang={lang} class="h-full">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Página de nombres y apellidos de los secuestrados en Venezuela" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/flag.svg" />
+		<title>{title}</title>
+		<script is:inline>
+			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
+<style is:global>
+	html {
+		font-family: 'Roboto Flex Variable', sans-serif;
+	}
+</style>
