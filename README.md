@@ -68,7 +68,7 @@ Tarjeta con las métricas anuales, personalidad musical y opciones para comparti
 
 1. **Clonar o descargar el repositorio:**
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/Miguel19x/wrapped.git
    cd wrapped
    ```
 
